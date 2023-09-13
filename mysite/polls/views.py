@@ -1,6 +1,7 @@
 from django import http
 from django import shortcuts
 from django import urls
+from django.utils import timezone
 from django.views import generic
 
 from polls import models
@@ -10,14 +11,21 @@ class DetailView(generic.DetailView):
     model = models.Question
     template_name = "polls/detail.html"
 
+    def get_queryset(self):
+        """
+        Excludes any questions that aren't published yet.
+        """
+        return models.Question.objects.filter(pub_date__lte=timezone.now())
+
 
 class IndexView(generic.ListView):
     template_name = "polls/index.html"
     context_object_name = "latest_question_list"
 
     def get_queryset(self):
-        """Return the last five published questions."""
-        return models.Question.objects.order_by("-pub_date")[:5]
+        return models.Question.objects.filter(pub_date__lte=timezone.now()).order_by(
+            "-pub_date"
+        )[:5]
 
 
 class ResultsView(generic.DetailView):
