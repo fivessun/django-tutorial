@@ -1,35 +1,28 @@
 from django import http
 from django import shortcuts
 from django import urls
-from django.template import loader
+from django.views import generic
 
 from polls import models
 
 
-def detail(request, question_id):
-    if True:  # Shortcut
-        question = shortcuts.get_object_or_404(models.Question, pk=question_id)
-    else:
-        try:
-            question = models.Question.objects.get(pk=question_id)
-        except models.Question.DoesNotExist:
-            raise http.Http404("Question does not exist")
-    return shortcuts.render(request, "polls/detail.html", {"question": question})
+class DetailView(generic.DetailView):
+    model = models.Question
+    template_name = "polls/detail.html"
 
 
-def index(request):
-    latest_question_list = models.Question.objects.order_by("-pub_date")[:5]
-    context = {"latest_question_list": latest_question_list}
-    if True:  # Shortcut
-        return shortcuts.render(request, "polls/index.html", context)
+class IndexView(generic.ListView):
+    template_name = "polls/index.html"
+    context_object_name = "latest_question_list"
 
-    template = loader.get_template("polls/index.html")
-    return http.HttpResponse(template.render(context, request))
+    def get_queryset(self):
+        """Return the last five published questions."""
+        return models.Question.objects.order_by("-pub_date")[:5]
 
 
-def results(request, question_id):
-    question = shortcuts.get_object_or_404(models.Question, pk=question_id)
-    return shortcuts.render(request, "polls/results.html", {"question": question})
+class ResultsView(generic.DetailView):
+    model = models.Question
+    template_name = "polls/results.html"
 
 
 def vote(request, question_id):
