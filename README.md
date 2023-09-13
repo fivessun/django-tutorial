@@ -22,3 +22,18 @@ $ pip install -r requirements.txt
 
 터미널에서 현재 경로를 django-tutorial/mysite/ 로 이동한 후, 
 mysite 안의 README.md 의 안내에 따라 프로젝트를 실행하세요!
+
+
+## 브랜치
+각 파트별로 생성되어있는 브렌치에서, 중간 결과물을 확인하실 수 있습니다.
+
+| Chapter | Branch                                                                                                                                                                                                                           | Documents                                                      |
+|---------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------|
+| part 1  | [part-1](https://github.com/fivessun/django-tutorial/tree/part-1/mysite)                                                                                                                                                         | [링크](https://docs.djangoproject.com/ko/4.2/intro/tutorial01/) |
+| part 2  | [part-2](https://github.com/fivessun/django-tutorial/tree/part-2/mysite)                                                                                                                                                         | [링크](https://docs.djangoproject.com/ko/4.2/intro/tutorial02/) |
+| part 3  | [part-3](https://github.com/fivessun/django-tutorial/tree/part-3/mysite)                                                                                                                                                         | [링크](https://docs.djangoproject.com/ko/4.2/intro/tutorial03/) |
+| part 4  | [part-4-without-generic-view](https://github.com/fivessun/django-tutorial/tree/part-4-without-generic-view/mysite), [part-4-with-generic-view](https://github.com/fivessun/django-tutorial/tree/part-4-with-generic-view/mysite) | [링크](https://docs.djangoproject.com/ko/4.2/intro/tutorial04/) |
+| part 5  | [part-5](https://github.com/fivessun/django-tutorial/tree/part-5/mysite)                                                                                                                                                         | [링크](https://docs.djangoproject.com/ko/4.2/intro/tutorial05/) |
+| part 6  | [part-6](https://github.com/fivessun/django-tutorial/tree/part-6/mysite)                                                                                                                                                         | [링크](https://docs.djangoproject.com/ko/4.2/intro/tutorial06/) |
+| part 7  | [part-7](https://github.com/fivessun/django-tutorial/tree/part-7/mysite)                                                                                                                                                         | [링크](https://docs.djangoproject.com/ko/4.2/intro/tutorial07/) |
+| part 8  | [part-8](https://github.com/fivessun/django-tutorial/tree/part-8/mysite)                                                                                                                                                         | [링크](https://docs.djangoproject.com/ko/4.2/intro/tutorial08/) |
