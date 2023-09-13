@@ -1,6 +1,6 @@
 # django-tutorial
 
-[장고 튜토리얼 문서(https://docs.djangoproject.com/ko/4.2/intro/)]에 따라 구현해보는 프로젝트 입니다.
+[장고 튜토리얼 문서](https://docs.djangoproject.com/ko/4.2/intro/)에 따라 구현해보는 프로젝트 입니다.
 
 본 프로젝트는 isort, black 기반으로 포멧팅을 해주어서, 튜토리얼 코드와 약간의 차이가 있을 수 있으나, 본질적으로 같은 구현의 내용을 담고 있습니다. 
 
