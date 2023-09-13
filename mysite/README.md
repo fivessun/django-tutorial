@@ -14,6 +14,16 @@ $ python manage.py runserver
 $ python manage.py runserver {{ port_number:8080 }}
 ```
 
+## Create SuperUser
+```bash
+$ python manage.py createsuperuser
+> Username: {{ username:admin }}
+> Email address: {{ email:admin@example.com }}
+> Password: **********
+> Password (again): *********
+> Superuser created successfully.
+```
+
 ## Formatting
 ```bash
 $ black .
