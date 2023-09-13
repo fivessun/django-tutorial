@@ -1,5 +1,6 @@
 from django import http
 from django import shortcuts
+from django import urls
 from django.template import loader
 
 from polls import models
@@ -27,9 +28,26 @@ def index(request):
 
 
 def results(request, question_id):
-    response = "You're looking at the results of question %s."
-    return http.HttpResponse(response % question_id)
+    question = shortcuts.get_object_or_404(models.Question, pk=question_id)
+    return shortcuts.render(request, "polls/results.html", {"question": question})
 
 
 def vote(request, question_id):
-    return http.HttpResponse("You're voting on question %s." % question_id)
+    question = shortcuts.get_object_or_404(models.Question, pk=question_id)
+    try:
+        selected_choice = question.choice_set.get(pk=request.POST["choice"])
+    except (KeyError, models.Choice.DoesNotExist):
+        return shortcuts.render(
+            request,
+            "polls/detail.html",
+            {
+                "question": question,
+                "error_message": "You didn't select a choice.",
+            },
+        )
+    else:
+        selected_choice.votes += 1
+        selected_choice.save()
+        return http.HttpResponseRedirect(
+            urls.reverse("polls:results", args=(question.id,))
+        )
