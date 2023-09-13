@@ -22,3 +22,7 @@ $ pip install -r requirements.txt
 
 터미널에서 현재 경로를 django-tutorial/mysite/ 로 이동한 후, 
 mysite 안의 README.md 의 안내에 따라 프로젝트를 실행하세요!
+
+
+## 
+
